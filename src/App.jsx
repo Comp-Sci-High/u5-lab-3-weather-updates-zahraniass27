@@ -1,39 +1,40 @@
 // 1. import useState from React
-import { useState } from "react";
+// 3. import useEffect from React
+import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
   // 2. Create weather state with default "Sunny"
-
-
-
-  // 3. import useEffect from React
-
-
+  const[weather, setWeather] =useState("sunny")
 
   // 4. Create handleRainy function
   // change weather to "Rainy"
-
-
+  function handleRainy() {
+    setWeather("Rainy")
+  }
 
   // 5. Create handleSnowy function
   // change weather to "Snowy"
-
-
+  function handleSnowy() {
+    setWeather("Snowy")
+  }
 
   // 6. Create handleHot function
   // change weather to "Hot"
-
-
-
+  function handleHot () {
+    setWeather("Hot")
+  }
+ 
   // 7. Create handleReset function
   // change weather back to "Sunny"
-
+  function handleReset(){
+    setWeather ("Sunny")
+  }
 
 
   // 8. Add useEffect that runs when weather changes
   // show alerts based on weather value
-
+  useEffect (weatherUpdate,[weather])
 
 
   return (
@@ -53,6 +54,7 @@ function App() {
           <button
             className="btn"
             // 10. connect to handleRainy
+            onClick={handleRainy}
           >
             Rainy 🌧️
           </button>
@@ -60,6 +62,7 @@ function App() {
           <button
             className="btn"
             // 11. connect to handleSnowy
+            onClick={handleSnowy}
           >
             Snowy ❄️
           </button>
@@ -67,6 +70,7 @@ function App() {
           <button
             className="btn"
             // 12. connect to handleHot
+            onClick={handleHot}
           >
             Hot ☀️
           </button>
@@ -74,6 +78,7 @@ function App() {
           <button
             className="btn secondary"
             // 13. connect to handleReset
+            onClick={handleHot}
           >
             Reset
           </button>
