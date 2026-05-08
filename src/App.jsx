@@ -5,7 +5,7 @@ import "./App.css";
 
 function App() {
   // 2. Create weather state with default "Sunny"
-  const[weather, setWeather] =useState("sunny")
+  const[weather, setWeather] =useState("Sunny")
 
   // 4. Create handleRainy function
   // change weather to "Rainy"
@@ -31,10 +31,21 @@ function App() {
     setWeather ("Sunny")
   }
 
-
   // 8. Add useEffect that runs when weather changes
   // show alerts based on weather value
-  useEffect (weatherUpdate,[weather])
+  function weatherUpdate() {
+    if (weather === "Rainy") {
+      alert("It's raining! Bring an umbrella.");
+    } else if (weather === "Snowy") {
+      alert("It's snowing! Stay warm.");
+    } else if (weather === "Hot") {
+      alert("It's hot! Stay hydrated.");
+    } else if (weather === "Sunny") {
+      alert("It's sunny! Enjoy the day.");
+    }
+  }
+
+  useEffect(weatherUpdate, [weather])
 
 
   return (
@@ -49,7 +60,7 @@ function App() {
           <h2>Current Weather</h2>
 
           {/* 9. Display weather here */}
-          <p className="output">Weather: </p>
+          <p className="output">Weather: {weather}</p>
 
           <button
             className="btn"
@@ -78,7 +89,7 @@ function App() {
           <button
             className="btn secondary"
             // 13. connect to handleReset
-            onClick={handleHot}
+            onClick={handleReset}
           >
             Reset
           </button>
